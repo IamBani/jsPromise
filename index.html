@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>123</title>
+	</head>
+	<body>
+		<!-- <div style="display: flex; align-items: flex-end;">
+			<span style="font-size: 100px;">789</span>
+			<span>飞</span>
+		</div> -->
+
+	</body>
+</html>
+
+<style>
+	#Triangles{
+		background-color: darkgrey;
+		height: 200px;
+		width: 200px;
+		margin-top: 50px;
+		position: relative;
+	}
+	#Triangles::after{
+		/* border: 5px solid red; */
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 5px solid darkgrey;
+		content: "";
+		position: absolute;    
+		width: 0;
+		left: 0;
+        top: -5px;
+	}
+</style>
+<!-- <script type="text/javascript">
+	
+	Date.prototype.pattern=function(fmt) {         
+	    var o = {         
+	    "M+" : this.getMonth()+1, //月份         
+	    "d+" : this.getDate(), //日         
+	    "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12, //小时         
+	    "H+" : this.getHours(), //小时         
+	    "m+" : this.getMinutes(), //分         
+	    "s+" : this.getSeconds(), //秒         
+	    "q+" : Math.floor((this.getMonth()+3)/3), //季度         
+	    "S" : this.getMilliseconds() //毫秒         
+	    };         
+	    var week = {         
+	    "0" : "/u65e5",         
+	    "1" : "/u4e00",         
+	    "2" : "/u4e8c",         
+	    "3" : "/u4e09",         
+	    "4" : "/u56db",         
+	    "5" : "/u4e94",         
+	    "6" : "/u516d"        
+	    };         
+	    if(/(y+)/.test(fmt)){         
+	        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));         
+	    }         
+	    if(/(E+)/.test(fmt)){         
+	        fmt=fmt.replace(RegExp.$1, ((RegExp.$1.length>1) ? (RegExp.$1.length>2 ? "/u661f/u671f" : "/u5468") : "")+week[this.getDay()+""]);         
+	    }         
+	    for(var k in o){         
+	        if(new RegExp("("+ k +")").test(fmt)){         
+	            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));         
+	        }         
+	    }         
+	    return fmt;         
+	}      
+	
+	var date =new Date();
+	date.setDate(date.getDate()+20);
+	var c=date.pattern("yyyy-MM-dd");
+	console.log(c);
+</script> -->
+
+<script src="./myPromise.js"></script>
+
+<script>
+ var a=new myPromise((resolve,rejecte)=>{
+	 resolve(123);
+	// setTimeout(()=>{
+		// rejecte("错误")
+	// },1000)
+	//console.log(123789);
+ })
+ var c=myPromise.reslove('错误');
+var b=myPromise.rejecte(120);
+// var allscc=myPromise.all([a,c,b])
+
+
+
+var race = myPromise.race([a,b,c]);
+race.then(v=>{
+	console.log(v);
+},err=>{
+	console.log(err);
+})
+// allscc.then(v=>{
+// 	console.log(v);
+// },err=>{
+// 	console.log(err);
+// })
+// a.then((v)=>{
+// 	console.log(v);
+// })
+// b.then((v)=>{
+// 	 console.log(v);
+
+// })
+// c.then((v)=>{
+// 	 console.log(v);
+// })
+// .then((v)=>{
+// 	console.log(v);
+// }).then((a)=>{
+// 	console.log(a);
+// },(err)=>{
+// 	console.log(err);
+// 	return myPromise.rejecte('你好');
+// })
+// .catch(err=>{
+// 	console.log(err);
+// })
+
+// myPromise.reslove('哪哈').then((v)=>{
+// 	console.log(v)
+// },(err)=>{
+// 	console.log(err);
+// })
+
+
+</script>
