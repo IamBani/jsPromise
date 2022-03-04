@@ -39,7 +39,7 @@
 
     myPromise.prototype.then=function(onResolve,onRejecte){
         let that=this;
-        onResolve=typeof(onResolve) === "function"?onResolve:(value)=>{myPromise.reslove(value)}
+        onResolve=typeof(onResolve) === "function"?onResolve:(value)=>{return myPromise.reslove(value)}
         onRejecte=typeof(onRejecte) ==="function"?onRejecte:(value)=>{throw value}
         return new myPromise((reslove,rejecte)=>{
             function handle(call){
@@ -76,7 +76,7 @@
     }
 
     myPromise.prototype.catch=function(onRejecte){
-        that.then(undefined,onRejecte)
+      return that.then(undefined,onRejecte)
     }
  }
  myPromise.reslove=function(value){
